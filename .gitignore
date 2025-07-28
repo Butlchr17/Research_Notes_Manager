@@ -1,7 +1,18 @@
 # Node.js dependencies
 node_modules/
+/.pnp
+.pnp.js
+/.vite
+npm-debug.log*
 npm-debug.log
+yarn-error.log*
 yarn-error.log
+
+# Testing
+/coverage
+
+# Production
+/dist
 
 # Environment variables
 .env
@@ -17,6 +28,8 @@ dist/
 # Logs
 logs/
 *.log
+vite.config.js.timestamp*
+vite.config.ts.timestamp*
 
 # OS files
 .DS_Store
