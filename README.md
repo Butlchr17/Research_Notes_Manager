@@ -163,15 +163,23 @@ It serves as a portfolio piece to showcase skills in problem-solving, collaborat
 
 The app provides a simple yet powerful interface for managing notes:
 
-Create Notes: Users enter a title and content; the app saves it to the database with timestamps.
-Read Notes: Lists all notes in descending order of creation, with caching to reduce load times.
-Update Notes: Edit existing notes; updates timestamps and invalidates cache.
-Delete Notes: Remove notes and refresh the list automatically.
-Caching: Redis stores frequent queries (e.g., all notes) for 60 seconds, improving efficiency.
-Responsive Design: Tailwind CSS ensures the UI works on desktop/mobile, with dark mode support.
-Error Handling: Basic validation and API error responses (e.g., 404 for missing notes).
-Timestamps: Automatically tracks created/updated times, displayed in local format.
-No authentication is included (for simplicity), but it could be added with JWT in extensions.
+- Create Notes: Users enter a title and content; the app saves it to the database with timestamps.
+
+- Read Notes: Lists all notes in descending order of creation, with caching to reduce load times.
+
+- Update Notes: Edit existing notes; updates timestamps and invalidates cache.
+
+- Delete Notes: Remove notes and refresh the list automatically.
+
+- Caching: Redis stores frequent queries (e.g., all notes) for 60 seconds, improving efficiency.
+
+- Responsive Design: Tailwind CSS ensures the UI works on desktop/mobile, with dark mode support.
+
+- Error Handling: Basic validation and API error responses (e.g., 404 for missing notes).
+
+- Timestamps: Automatically tracks created/updated times, displayed in local format.
+
+- No authentication is included, but it could be added with JWT in extensions.
 
 ## Tech Stack and Architecture
 
@@ -179,31 +187,49 @@ The app follows a classic full-stack architecture: client (frontend), server (ba
 
 # Frontend:
 
-React (with Vite for fast builds/hot reloading).
-Tailwind CSS for styling (responsive, utility-first classes).
-Axios for API requests.
-State management: React hooks (useState, useEffect).
+ - React (with Vite for fast builds/hot reloading).
+
+ - Tailwind CSS for styling (responsive, utility-first classes).
+
+ - Axios for API requests.
+
+ - State management: React hooks (useState, useEffect).
 
 # Backend:
 
-Node.js with Express.js for RESTful APIs.
-PostgreSQL (SQL database) for persistent storage.
-Redis for caching (invalidated on mutations).
-pg library for database connections.
-dotenv for environment variables.
-DevOps & Cloud:
-Docker for containerization.
-Docker Compose for orchestration (multi-container setup).
-Git for source control (with commits per step).
-Simulated CI/CD (e.g., via GitHub Actions workflow).
+ - Node.js with Express.js for RESTful APIs.
+
+ - PostgreSQL (SQL database) for persistent storage.
+
+ - Redis for caching (invalidated on mutations).
+
+ - pg library for database connections.
+
+ - dotenv for environment variables.
+
+ - DevOps & Cloud:
+
+ - Docker for containerization.
+
+ - Docker Compose for orchestration (multi-container setup).
+
+ - Git for source control (with commits per step).
+
+ - Simulated CI/CD (e.g., via GitHub Actions workflow).
+
 
 # Data Flow:
 
-Frontend sends API requests (e.g., POST /notes) via Axios.
-Backend handles routes: Checks Redis cache; if miss, queries PostgreSQL.
-Mutations (POST/PUT/DELETE) update DB and invalidate Redis keys.
-Responses return JSON; frontend updates UI state.
+1. Frontend sends API requests (e.g., POST /notes) via Axios.
+
+2. Backend handles routes: Checks Redis cache; if miss, queries PostgreSQL.
+
+3. Mutations (POST/PUT/DELETE) update DB and invalidate Redis keys.
+
+4. Responses return JSON; frontend updates UI state.
+
 In Docker, services communicate via internal network (e.g., db hostname).
+
 Database Schema (from db-init.sql):
 
 ```bash
@@ -219,45 +245,67 @@ CREATE INDEX idx_notes_title ON notes(title);
 ```
  - Optimized with index for title searches.
 
-The stack covers the job's key qualifications: full-stack (React/Node), databases (SQL/NoSQL via Redis), DevOps (Docker/Kubernetes-ready), and AI (used for code prompts and troubleshooting with new software stacks).
+The stack covers the following key qualifications: full-stack (React/Node), databases (SQL/NoSQL via Redis), DevOps (Docker/Kubernetes-ready), and AI (used for code prompts and troubleshooting with new software stacks).
 
 ## Code Structure
 
 Project Root:
+
 backend/: Server code, APIs, .env.
+
 server.js: Express setup, routes, DB/Redis connections.
+
 db-init.sql: Schema.
+
 frontend/: React app.
+
 src/App.jsx: Main component with CRUD logic.
+
 src/main.jsx: React root.
+
 src/index.css: Tailwind + custom styles.
+
 tailwind.config.js, vite.config.js: Configs.
+
 docker-compose.yml: Orchestration.
+
 Dockerfiles: In backend/ and frontend/.
+
 .gitignore: Ignores node_modules, .env, etc.
+
 README.md: This doc.
+
 API Endpoints (RESTful):
+
 GET /notes: Fetch all (cached).
+
 GET /notes/:id: Fetch one (cached).
+
 POST /notes: Create.
+
 PUT /notes/:id: Update.
+
 DELETE /notes/:id: Delete.
+
 Development Process
+
 Built step-by-step with AI assistance (e.g., prompts for Express APIs, React components). Key practices:
 
-AI Integration: Used tools like GitHub Copilot for generating/refining code (e.g., "Implement CRUD REST APIs with Redis caching").
-Agile: Committed per step (e.g., "Initialized backend"), simulated code reviews/pair programming.
-Testing: Manual (curl/Postman for APIs, browser for UI); add Jest/Vitest for unit tests.
-Challenges Overcome: Setup issues (e.g., PostgreSQL auth, Tailwind v4 config) resolved via troubleshooting.
-Portfolio Focus: GitHub-ready with commits, README, Docker for easy demo.
-Setup and Running
+ - AI Integration: Used tools like GitHub Copilot for generating/refining code (e.g., "Implement CRUD REST APIs with Redis caching").
+ - Agile: Committed per step (e.g., "Initialized backend"), simulated code reviews/pair programming.
+ - Testing: Manual (curl/Postman for APIs, browser for UI); add Jest/Vitest for unit tests.
+ - Challenges Overcome: Setup issues (e.g., PostgreSQL auth, Tailwind v4 config) resolved via troubleshooting.
+ - Portfolio Focus: GitHub-ready with commits, README, Docker for easy demo.
+
+# Setup and Running
+
 See the README.md content above for detailed instructions (local and Docker).
 
 ## Extensions/Future Work
 
-Authentication (JWT/OAuth).
-User roles (e.g., researcher vs. admin).
-Search/filter notes.
-Deploy to AWS (ECS/EC2 with RDS/ElastiCache).
-CI/CD pipeline (GitHub Actions for tests/deploy).
-Analytics (track note usage).
+- Authentication (JWT/OAuth).
+- User roles (e.g., researcher vs. admin).
+- Search/filter notes.
+- Deploy to AWS (ECS/EC2 with RDS/ElastiCache).
+- CI/CD pipeline (GitHub Actions for tests/deploy).
+- Analytics (track note usage).
