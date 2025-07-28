@@ -46,7 +46,9 @@ Thumbs.db
 
 # Docker
 docker-compose.override.yml
+.docker/
 
 # Misc
 tmp/
 temp/
+postgres_data/
