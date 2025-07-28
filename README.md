@@ -1,6 +1,6 @@
 # Research Notes Manager
 
-A full-stack web application for managing research notes, designed to streamline workflows for medical researchers. Built as preparation for a Fullstack Software Engineer role at **Truveta**, this project showcases proficiency in full-stack development, databases, caching, AI-assisted coding, and containerization.
+A full-stack web application for managing research notes, designed to streamline workflows for medical researchers. Built as preparation for a Fullstack Software Engineer role, this project showcases proficiency in full-stack development, databases, caching, AI-assisted coding, and containerization.
 
 ---
 
