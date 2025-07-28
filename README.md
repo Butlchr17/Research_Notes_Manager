@@ -153,10 +153,11 @@ This app addresses a hypothetical inefficiency in research workflows: manual not
 
 The project was built step-by-step, covering:
 
-Backend setup with APIs and caching.
-Database schema design.
-Frontend UI with React.
-Containerization for deployment.
+- Backend setup with APIs and caching.
+- Database schema design.
+- Frontend UI with React.
+- Containerization for deployment.
+  
 It serves as a portfolio piece to showcase skills in problem-solving, collaboration (e.g., simulated pair programming), and presenting designs.
 
 ## Key Features
