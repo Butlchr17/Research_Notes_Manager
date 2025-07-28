@@ -92,7 +92,7 @@ Visit [http://localhost:5173](http://localhost:5173) in your browser to use the 
 
 ---
 
-## 🐳 Docker Setup
+## Docker Setup
 
 To run the project using Docker:
 
